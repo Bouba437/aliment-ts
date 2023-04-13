@@ -29,9 +29,12 @@ class Aliment {
     ;
     set image(newImage) { this._image = newImage; }
     ;
+    afficherValeurNutritive() {
+        console.log("Valeurs nutritionnelles : ");
+        console.log("Lipide : " + this.lipide);
+        console.log("Glucide : " + this.glucide);
+        console.log("Protéine : " + this.proteine);
+    }
 }
 Aliment.listeAliments = [];
-let a1 = new Aliment("Pomme", ClasseAliment.BON, 53, 0.2, 14, 0.3, "pomme.png");
-let a2 = new Aliment("Salami", ClasseAliment.MAUVAIS, 270, 26.5, 1.3, 12, "salami.png");
-console.log(Aliment.listeAliments);
 //# sourceMappingURL=Aliment.class.js.map
