@@ -4,8 +4,29 @@ new Fruit("Poire", 45, 0.4, 13, 0.1, "poire.png");
 new Charcuterie("Salami", 270, 26.5, 1.3, 12, "salami.png");
 new Charcuterie("Saucisson", 370, 36.5, 2.2, 15, "saucisson.png");
 
-for(let aliment of Aliment.listeAliments) {
-    aliment.afficherAliment();
-    console.log("--------------------------");
-    
+listeAliment();
+
+function listeAliment () {
+    const typeAlimentSouhaite = (document.querySelector("#type")! as HTMLSelectElement).value;
+
+    console.log(typeAlimentSouhaite);
+
+
+    const baliseTbody = document.querySelector("#listeAliments")! as HTMLTableElement;
+    let listeAlimentBalise = "";
+    for(let aliment of Aliment.listeAliments) {
+
+        listeAlimentBalise += `
+            <tr>
+                <td>${aliment.nom}</td>
+                <td>${aliment.lipide}</td>
+                <td>${aliment.glucide}</td>
+                <td>${aliment.proteine}</td>
+                <td>${aliment.sante}</td>
+                <td><img src="images/${aliment.image}" width="100px" /></td>
+            </tr>
+        `;
+    }
+
+    baliseTbody.innerHTML = listeAlimentBalise;
 }
